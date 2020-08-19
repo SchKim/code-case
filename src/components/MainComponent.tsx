@@ -1,7 +1,8 @@
 import React from "react";
+import HomeComponent from "./HomeComponent";
 
 interface IMainComponentProps {
-    products: {}[]
+    
 }
 
 export default class MainComponent extends React.Component<IMainComponentProps> {
@@ -11,7 +12,9 @@ export default class MainComponent extends React.Component<IMainComponentProps> 
 
     render() {
         return(
-            <div></div>
+            <div>
+                <HomeComponent/>
+            </div>
         );
     }
 }

@@ -1,8 +1,9 @@
 import React from "react";
 //import products from '../shared/products'
+// import { baseUrl } from "../shared/baseUrl";
 
 interface IHomeComponentProps {
-    products: {}[]
+    // products: {}[]
 }
 
 export default class HomeComponent extends React.Component<IHomeComponentProps> {
@@ -12,7 +13,9 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
 
     render() {
         return(
-            <div></div>
+            <div>
+                <p>HomeComponent</p>
+            </div>
         );
     }
 }
