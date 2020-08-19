@@ -1,4 +1,5 @@
 import React from "react";
+
 //import products from '../shared/products'
 // import { baseUrl } from "../shared/baseUrl";
 
@@ -14,7 +15,8 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
     render() {
         return(
             <div>
-                <p>HomeComponent</p>
+                <p>INHomeComponent</p>
+               
             </div>
         );
     }

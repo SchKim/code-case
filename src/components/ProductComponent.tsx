@@ -11,7 +11,7 @@ export default class ProductComponent extends React.Component<IProductComponentP
 
     render() {
         return(
-            <div></div>
+            <div><p>in product Component</p></div>
         );
     }
 }
