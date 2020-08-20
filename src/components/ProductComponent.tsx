@@ -1,5 +1,6 @@
 import React from "react";
 import { IProduct } from "../shared/IProduct";
+import { baseUrl } from '../shared/baseUrl'; 
 
 interface IProductComponentProps {
 
@@ -25,10 +26,10 @@ export default class ProductComponent extends React.Component<IProductComponentP
     render() {
         return(
             <div>
-                <img src="../logo svg" />
-                <h1>TITle</h1>
-                <p>disctriotion </p>
-                <p>Price</p>
+                <img src={ this.props.product.image} alt={this.props.product.title} />
+                <h1>{this.props.product.title}</h1>
+                <p>{this.props.product.description} </p>
+                <p>{this.props.product.price}</p>
 
                 <button>voeg toe aan mandje</button>
             </div>

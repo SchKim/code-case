@@ -14,8 +14,15 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
     render() {  
         return(
             <div>
-                <h1>HomeComponent</h1>               
+                <h1>HomeComponent</h1>
+                {this.renderProducts()}               
             </div>
         );
+    }
+    // dit is de For loop 
+    renderProducts() {
+        return this.props.products.map(product => {
+            return <ProductComponent key={product.id} product={product} />
+        });
     }
 }
