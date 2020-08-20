@@ -5,6 +5,7 @@ import FooterComponent from './FooterComponent';
 import ShoppingCartComponent from './ShoppingCartComponent';
 import { IProduct } from "../shared/IProduct";
 import { fetchProducts } from "../shared/fetchProducts";
+import { Route } from "react-router-dom";
 
 interface IMainComponentProps {
     
@@ -61,7 +62,8 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
             <div>
                 <h1>MainComponent</h1>
                 <HeaderComponent totalProducts={this.state.selectedProducts.length} totalPrice={this.getTotalPrice()} />
-                <HomeComponent products={this.state.products} clickHandler={this.clickHandler}/>
+                <Route exact path="/" component={() => <HomeComponent products={this.state.products} clickHandler={this.clickHandler}/>} />
+                <Route path="/shoppingcart" component={() => <ShoppingCartComponent />} />                
             </div>
         );
     }

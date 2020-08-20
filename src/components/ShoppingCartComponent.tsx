@@ -11,7 +11,7 @@ export default class ShoppingCartComponent extends React.Component<IShoppingCart
 
     render() {
         return(
-            <div></div>
+            <h1>ShoppingCartComponent</h1>
         );
     }
 }
