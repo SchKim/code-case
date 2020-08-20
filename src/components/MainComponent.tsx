@@ -63,7 +63,7 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
                 <h1>MainComponent</h1>
                 <HeaderComponent totalProducts={this.state.selectedProducts.length} totalPrice={this.getTotalPrice()} />
                 <Route exact path="/" component={() => <HomeComponent products={this.state.products} clickHandler={this.clickHandler}/>} />
-                <Route path="/shoppingcart" component={() => <ShoppingCartComponent />} />                
+                <Route path="/shoppingcart" component={() => <ShoppingCartComponent basket={this.state.selectedProducts} />} />                
             </div>
         );
     }
