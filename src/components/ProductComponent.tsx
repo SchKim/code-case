@@ -3,7 +3,7 @@ import { IProduct } from "../shared/IProduct";
 
 interface IProductComponentProps {
     product: IProduct;
-    clickHandler: (productId: number) => void   
+    clickHandler: (product: IProduct) => void   
 }
 
 
@@ -20,7 +20,7 @@ export default class ProductComponent extends React.Component<IProductComponentP
                 <p>{this.props.product.description} </p>
                 <p>{this.props.product.price}</p>
 
-                <button onClick={() => this.props.clickHandler(this.props.product.id)}>voeg toe aan mandje</button>
+                <button onClick={() => this.props.clickHandler(this.props.product)}>voeg toe aan mandje</button>
             </div>
 
             

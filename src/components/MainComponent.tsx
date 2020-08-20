@@ -12,6 +12,7 @@ interface IMainComponentProps {
 
 interface IMainComponentState {
     products: IProduct[];
+    selectedProducts: IProduct[];
 }
 
 export default class MainComponent extends React.Component<IMainComponentProps, IMainComponentState> {
@@ -19,7 +20,8 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
         super(props)
         
         this.state = {
-            products: []
+            products: [],
+            selectedProducts: []
         }
     }
 
@@ -36,10 +38,19 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
         this.setState({ products: data });        
     }
 
+    getTotalPrice() {
+        let totalPrice: number = 0;
+
+        this.state.selectedProducts.map(product => {
+            totalPrice = totalPrice + product.price;
+        });
+
+        return totalPrice;
+    }
+
     // anders bind(this)
-    clickHandler = (productId: number) => {
-        console.log('this clickHandler is from MainComponent')
-        console.log(productId)
+    clickHandler = (product: IProduct) => {
+        this.setState({ selectedProducts: [...this.state.selectedProducts, product] });
     }
     // de state gaat omlaag van main -> home -> product 
     // de onClick event gaat omhoog van product -> home -> main
@@ -49,7 +60,7 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
         return (
             <div>
                 <h1>MainComponent</h1>
-                <HeaderComponent />
+                <HeaderComponent totalProducts={this.state.selectedProducts.length} totalPrice={this.getTotalPrice()} />
                 <HomeComponent products={this.state.products} clickHandler={this.clickHandler}/>
             </div>
         );
