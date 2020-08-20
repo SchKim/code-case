@@ -21,8 +21,11 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
     }
     // dit is de For loop 
     renderProducts() {
-        return this.props.products.map(product => {
+        // alleen de eerste 10 producten tonen
+        const products = this.props.products.slice(0, 10);
+
+        return products.map((product) => {
             return <ProductComponent key={product.id} product={product} />
         });
-    }
+    }    
 }

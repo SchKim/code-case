@@ -4,14 +4,16 @@ interface IHeaderComponentProps {
    
 }
 
-export default class ShoppingCartComponent extends React.Component<IHeaderComponentProps> {
+export default class HeaderComponent extends React.Component<IHeaderComponentProps> {
     constructor(props: IHeaderComponentProps) {
         super(props)
     }
 
     render() {
         return(
-            <div></div>
+            <div>
+               
+            </div>
         );
     }
 }

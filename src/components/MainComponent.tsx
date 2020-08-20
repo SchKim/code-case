@@ -30,7 +30,7 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
 
     // haal data binnen met fetchproducts en zet het in de this.state 
     // method gemaakt zet products data in getData 
-    getData = async () => {
+    async getData() {
         let data = await fetchProducts();
 
         this.setState({ products: data });        
