@@ -4,6 +4,7 @@ import ProductComponent from "./ProductComponent";
 
 interface IHomeComponentProps {
     products: IProduct[]
+    clickHandler: (productId: number) => void   
 }
 
 export default class HomeComponent extends React.Component<IHomeComponentProps> {
@@ -25,7 +26,7 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
         const products = this.props.products.slice(0, 10);
 
         return products.map((product) => {
-            return <ProductComponent key={product.id} product={product} />
+            return <ProductComponent key={product.id} product={product} clickHandler={this.props.clickHandler} />
         });
     }    
 }

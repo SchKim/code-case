@@ -36,11 +36,21 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
         this.setState({ products: data });        
     }
 
+    // anders bind(this)
+    clickHandler = (productId: number) => {
+        console.log('this clickHandler is from MainComponent')
+        console.log(productId)
+    }
+    // de state gaat omlaag van main -> home -> product 
+    // de onClick event gaat omhoog van product -> home -> main
+    // zodat de state alleen in MainComponent bestaat of bijhouden
+    // makkelijker om het door geven naar andere componenten zoals winkelwagen
     render() {
         return (
             <div>
                 <h1>MainComponent</h1>
-                <HomeComponent products={this.state.products}/>
+                <HeaderComponent />
+                <HomeComponent products={this.state.products} clickHandler={this.clickHandler}/>
             </div>
         );
     }

@@ -1,28 +1,17 @@
 import React from "react";
 import { IProduct } from "../shared/IProduct";
-import { baseUrl } from '../shared/baseUrl'; 
 
 interface IProductComponentProps {
-
     product: IProduct;
-   
+    clickHandler: (productId: number) => void   
 }
 
 
 export default class ProductComponent extends React.Component<IProductComponentProps> {
     constructor(props: IProductComponentProps) {
-        super(props);
-        this.state = {
-            id: '',
-            title: '',
-            price: '',
-            description: '',
-            category: '',
-            image: ''
-            
-        }
-        
-    }
+        super(props);        
+    }    
+
     render() {
         return(
             <div>
@@ -31,7 +20,7 @@ export default class ProductComponent extends React.Component<IProductComponentP
                 <p>{this.props.product.description} </p>
                 <p>{this.props.product.price}</p>
 
-                <button>voeg toe aan mandje</button>
+                <button onClick={() => this.props.clickHandler(this.props.product.id)}>voeg toe aan mandje</button>
             </div>
 
             
