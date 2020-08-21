@@ -2,6 +2,7 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import ProductComponent from "./ProductComponent";
 
+
 interface IHomeComponentProps {
     products: IProduct[]
     clickHandler: (product: IProduct) => void   

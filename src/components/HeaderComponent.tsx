@@ -1,4 +1,23 @@
 import React from "react";
+import styled from 'styled-components';
+
+const Button = styled.button`
+  cursor: pointer;
+  background: red;
+  font-size: 16px;
+  border-radius: 3px;
+  color:  #000;
+  border: 2px solid #b2d7ee;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+ 
+  &:hover {
+    background-color: #ddeff8;
+    color: #000;
+  }
+`;
+
 
 interface IHeaderComponentProps {
   totalProducts: number;
@@ -15,10 +34,10 @@ export default class HeaderComponent extends React.Component<IHeaderComponentPro
         <h1>HeaderComponent</h1>
         {/* bij onClick wordt ShoppingCartComponent geladen */}
         <p onClick={this.props.renderShoppingCartComponent}>icon</p>
-        <p>totaal producten: {this.props.totalProducts}</p>
-        <p>totaal prijs: {this.props.totalPrice}</p>
+        <p>Totaal producten: {this.props.totalProducts}</p>
+        <p>Totaal prijs: {this.props.totalPrice}</p>
         {/* bij onClick wort het winkelmand geleegd */}
-        <button onClick={this.props.emptySelectedProducts}>Winkelmand legen</button>
+        <Button onClick={this.props.emptySelectedProducts}>Winkelmand legen</Button>
       </div>
     );
   }

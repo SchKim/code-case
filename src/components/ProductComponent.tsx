@@ -1,22 +1,87 @@
 import React from "react";
 import { IProduct } from "../shared/IProduct";
+import styled from "styled-components";
+import { Card } from "../Card";
+
+const Button = styled.button`
+  cursor: pointer;
+  background: b2d7ee;
+  font-size: 16px;
+  border-radius: 3px;
+  color: #000;
+  border: 2px solid #b2d7ee;
+  margin: 0 30%;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+  width: 40%;
+
+  &:hover {
+    background-color: #ddeff8;
+    color: #000;
+  }
+`;
+
+const StyledContainer = styled.div`
+  border: 4px solid #ddeff8 ;
+  padding: 25px 12px ;
+  background: #FFF;
+`;
+
+const Title = styled.h2`
+  color: #000;
+  font-weight: 500;
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
+  
+`;
+
+const Description = styled.p`
+  color: #000;
+  font-weight: 300;
+  @media (max-width: 500px) {
+    font-size: 0.75rem;
+  }
+`;
+const StyledPhoto = styled.img`
+  width: 50%;
+  margin: 0 25%;
+  object-fit: cover;
+   }
+ `
+ const StyledRoot = styled.div`
+  padding: 50px 12px;
+`
+
+
 
 interface IProductComponentProps {
-    product: IProduct;
-    clickHandler: (product: IProduct) => void   
+  product: IProduct;
+  clickHandler: (product: IProduct) => void;
 }
 
-
-export default class ProductComponent extends React.Component<IProductComponentProps> {
-    render() {
-        return(
-            <div>
-                <img style={{width:'10%'}} src={ this.props.product.image} alt={this.props.product.title} />
-                <h1>{this.props.product.title}</h1>
-                <p>{this.props.product.description} </p>
-                <p>{this.props.product.price}</p>
-                <button onClick={() => this.props.clickHandler(this.props.product)}>voeg toe aan mandje</button>
-            </div>            
-        );
-    }
+export default class ProductComponent extends React.Component<
+  IProductComponentProps
+> {
+  render() {
+    return (
+        <StyledRoot>
+      <StyledContainer>
+          <StyledPhoto
+            // style={{ width: "50%" }}
+            src={this.props.product.image}
+            alt={this.props.product.title}
+          />
+          <Title>{this.props.product.title}</Title>
+          <Description>
+            <p>{this.props.product.description}</p>{" "}
+          </Description>
+          <p>&euro; {this.props.product.price}</p>
+          <Button onClick={() => this.props.clickHandler(this.props.product)}>
+            Voeg toe aan mandje
+          </Button>
+      </StyledContainer>
+      </StyledRoot>
+    );
+  }
 }
