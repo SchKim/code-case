@@ -15,7 +15,7 @@ export default class ProductComponent extends React.Component<IProductComponentP
     render() {
         return(
             <div>
-                <img src={ this.props.product.image} alt={this.props.product.title} />
+                <img style={{width:'10%'}} src={ this.props.product.image} alt={this.props.product.title} />
                 <h1>{this.props.product.title}</h1>
                 <p>{this.props.product.description} </p>
                 <p>{this.props.product.price}</p>

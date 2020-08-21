@@ -3,6 +3,8 @@ import { IProduct } from "../shared/IProduct";
 
 interface IShoppingCartComponentProps {
   basket: IProduct[];
+  renderMainComponent: () => void;
+  removeProduct: (productId: number) => void;
 }
 
 export default class ShoppingCartComponent extends React.Component<
@@ -15,6 +17,8 @@ export default class ShoppingCartComponent extends React.Component<
   render() {
     return (
       <div>
+        {/* bij onClick wordt MainComponent geladen */}
+        <button onClick={this.props.renderMainComponent}>Terug naar producten</button>
         <h1>ShoppingCartComponent</h1>
         {this.renderBasket()}
       </div>
@@ -29,6 +33,8 @@ export default class ShoppingCartComponent extends React.Component<
             <h1>{product.title}</h1>
             <p>{product.description} </p>
             <p>{product.price}</p>
+            {/* bij onClick wordt het geselecteerde product verwijderd */}
+            <button onClick={() => this.props.removeProduct(product.id)}>Verwijder product</button>
         </div>
       );
     });

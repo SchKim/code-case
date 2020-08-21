@@ -3,6 +3,8 @@ import React from "react";
 interface IHeaderComponentProps {
   totalProducts: number;
   totalPrice: number;
+  renderShoppingCartComponent: () => void;
+  emptySelectedProducts: () => void;
 }
 
 export default class HeaderComponent extends React.Component<
@@ -16,9 +18,12 @@ export default class HeaderComponent extends React.Component<
     return (
       <div>
         <h1>HeaderComponent</h1>
-        <p>icon</p>
-        <p>{this.props.totalProducts}</p>
-        <p>totaal{this.props.totalPrice}</p>
+        {/* bij onClick wordt ShoppingCartComponent geladen */}
+        <p onClick={this.props.renderShoppingCartComponent}>icon</p>
+        <p>totaal producten: {this.props.totalProducts}</p>
+        <p>totaal prijs: {this.props.totalPrice}</p>
+        {/* bij onClick wort het winkelmand geleegd */}
+        <button onClick={this.props.emptySelectedProducts}>Winkelmand legen</button>
       </div>
     );
   }

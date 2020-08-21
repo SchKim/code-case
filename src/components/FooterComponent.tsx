@@ -11,7 +11,7 @@ export default class FooterComponent extends React.Component<IFooterComponentPro
 
     render() {
         return(
-            <div></div>
+            <h1>FooterComponent</h1>
         );
     }
 }
