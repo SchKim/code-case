@@ -7,10 +7,7 @@ import { IProduct } from './IProduct';
 // zet de response op in json data en stop dat in products van de interface Iproducts
 
 export function fetchProducts(): Promise<IProduct[]> {
-    const products =  fetch(baseUrl + "products")
+    return fetch(baseUrl + "products")
         .then(response => response.json())
-        .then(products => products = products);
-
-    return products;
+        .then(products => products);
 } 
-

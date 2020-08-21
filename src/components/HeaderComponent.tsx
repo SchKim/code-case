@@ -7,12 +7,7 @@ interface IHeaderComponentProps {
   emptySelectedProducts: () => void;
 }
 
-export default class HeaderComponent extends React.Component<
-  IHeaderComponentProps
-> {
-  constructor(props: IHeaderComponentProps) {
-    super(props);
-  }
+export default class HeaderComponent extends React.Component<IHeaderComponentProps> { 
 
   render() {
     return (

@@ -7,13 +7,7 @@ interface IShoppingCartComponentProps {
   removeProduct: (productId: number) => void;
 }
 
-export default class ShoppingCartComponent extends React.Component<
-  IShoppingCartComponentProps
-> {
-  constructor(props: IShoppingCartComponentProps) {
-    super(props);
-  }
-
+export default class ShoppingCartComponent extends React.Component<IShoppingCartComponentProps> {
   render() {
     return (
       <div>

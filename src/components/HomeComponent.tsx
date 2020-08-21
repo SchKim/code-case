@@ -8,10 +8,6 @@ interface IHomeComponentProps {
 }
 
 export default class HomeComponent extends React.Component<IHomeComponentProps> {
-    constructor(props: IHomeComponentProps) {
-        super(props)
-    }
-
     render() {  
         return(
             <div>
@@ -20,6 +16,7 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
             </div>
         );
     }
+    
     // dit is de For loop 
     renderProducts() {
         // alleen de eerste 10 producten tonen

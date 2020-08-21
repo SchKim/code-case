@@ -8,10 +8,6 @@ interface IProductComponentProps {
 
 
 export default class ProductComponent extends React.Component<IProductComponentProps> {
-    constructor(props: IProductComponentProps) {
-        super(props);        
-    }    
-
     render() {
         return(
             <div>
@@ -19,11 +15,8 @@ export default class ProductComponent extends React.Component<IProductComponentP
                 <h1>{this.props.product.title}</h1>
                 <p>{this.props.product.description} </p>
                 <p>{this.props.product.price}</p>
-
                 <button onClick={() => this.props.clickHandler(this.props.product)}>voeg toe aan mandje</button>
-            </div>
-
-            
+            </div>            
         );
     }
 }

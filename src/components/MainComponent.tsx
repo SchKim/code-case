@@ -14,10 +14,7 @@ interface IMainComponentState {
   renderShoppingCartComponent: boolean;
 }
 
-export default class MainComponent extends React.Component<
-  IMainComponentProps,
-  IMainComponentState
-> {
+export default class MainComponent extends React.Component<IMainComponentProps, IMainComponentState> {
   constructor(props: IMainComponentProps) {
     super(props);
 
