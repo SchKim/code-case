@@ -1,7 +1,6 @@
 import React from "react";
 import { IProduct } from "../shared/IProduct";
 import styled from "styled-components";
-import { Card } from "../Card";
 
 const Button = styled.button`
   cursor: pointer;

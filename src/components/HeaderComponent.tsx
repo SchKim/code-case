@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   cursor: pointer;
-  background: red;
+  background: #e6e6e6;
   font-size: 16px;
   border-radius: 3px;
   color:  #000;
-  border: 2px solid #b2d7ee;
+  border: 2px solid #000;
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
+`;
+const Header = styled.header`
  
-  &:hover {
-    background-color: #ddeff8;
-    color: #000;
-  }
+  background: #b2d7ee;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 0.25em 1em;
+  width: 100%;
+
 `;
 
 
@@ -30,7 +34,7 @@ export default class HeaderComponent extends React.Component<IHeaderComponentPro
 
   render() {
     return (
-      <div>
+      <Header>
         <h1>HeaderComponent</h1>
         {/* bij onClick wordt ShoppingCartComponent geladen */}
         <p onClick={this.props.renderShoppingCartComponent}>icon</p>
@@ -38,7 +42,7 @@ export default class HeaderComponent extends React.Component<IHeaderComponentPro
         <p>Totaal prijs: {this.props.totalPrice}</p>
         {/* bij onClick wort het winkelmand geleegd */}
         <Button onClick={this.props.emptySelectedProducts}>Winkelmand legen</Button>
-      </div>
+        </Header>
     );
   }
 }
