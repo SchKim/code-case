@@ -1,6 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 
+
+interface IHeaderComponentProps {
+  totalProducts: number;
+  totalPrice: number;
+  renderShoppingCartComponent: () => void;
+  emptySelectedProducts: () => void;
+}
+
+export default class HeaderComponent extends React.Component<
+  IHeaderComponentProps
+> {
+  render() {
+    return (
+      <HeaderSticky>
+        <Header>
+          <HeaderContainer>
+            <h1>Kim's code case</h1>
+            <HeaderContainerRight>
+            {this.props.totalProducts}
+              {/* bij onClick wordt ShoppingCartComponent geladen */}
+              <Icon onClick={this.props.renderShoppingCartComponent}>
+
+                <i style={{ fontSize: "40px" }}
+                  className="fa fa-shopping-basket"></i>
+              </Icon>
+              
+              <p>Totaal prijs: &euro; {this.props.totalPrice}</p>
+              {/* bij onClick wort het winkelmand geleegd */}
+              <Button onClick={this.props.emptySelectedProducts}>
+                Winkelmand legen
+              </Button>
+            </HeaderContainerRight>
+          </HeaderContainer>
+        </Header>
+      </HeaderSticky>
+    );
+  }
+}
+
+
 const Button = styled.button`
   cursor: pointer;
   background: #e6e6e6;
@@ -47,39 +87,3 @@ position: -webkit-sticky; /* Safari */
   top: 0;
   border: 2px solid #040;
 }`;
-interface IHeaderComponentProps {
-  totalProducts: number;
-  totalPrice: number;
-  renderShoppingCartComponent: () => void;
-  emptySelectedProducts: () => void;
-}
-
-export default class HeaderComponent extends React.Component<
-  IHeaderComponentProps
-> {
-  render() {
-    return (
-      <HeaderSticky>
-        <Header>
-          <HeaderContainer>
-            <h1>Kim's code case</h1>
-            <HeaderContainerRight>
-              {/* bij onClick wordt ShoppingCartComponent geladen */}
-              <Icon onClick={this.props.renderShoppingCartComponent}>
-
-                <i style={{ fontSize: "40px" }}
-                  className="fa fa-shopping-basket"></i>
-              </Icon>
-              <p>Totaal producten: {this.props.totalProducts}</p>
-              <p>Totaal prijs: {this.props.totalPrice}</p>
-              {/* bij onClick wort het winkelmand geleegd */}
-              <Button onClick={this.props.emptySelectedProducts}>
-                Winkelmand legen
-              </Button>
-            </HeaderContainerRight>
-          </HeaderContainer>
-        </Header>
-      </HeaderSticky>
-    );
-  }
-}

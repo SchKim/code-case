@@ -2,6 +2,51 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import styled from "styled-components";
 
+
+interface IShoppingCartComponentProps {
+  basket: IProduct[];
+  renderMainComponent: () => void;
+  removeProduct: (productId: number) => void;
+}
+
+export default class ShoppingCartComponent extends React.Component<
+  IShoppingCartComponentProps
+> {
+  render() {
+    return (
+      <div>
+        {/* bij onClick wordt MainComponent geladen */}
+        <ButtonBack onClick={this.props.renderMainComponent}> <i className="fa fa-arrow-left"></i> Terug naar producten
+        </ButtonBack>
+        <H1>Uw winkel wagen</H1>
+        {this.renderBasket()}
+      </div>
+    );
+  }
+
+  renderBasket() {
+    return this.props.basket.map((product) => {
+      return (
+        <div>
+        <StyledRoot>
+          <StyledContainer>
+            <StyledPhoto src={product.image} alt={product.title} />
+            <Title>{product.title}</Title>
+            <Description>{product.description} </Description>
+            <p>{product.price}</p>
+            {/* bij onClick wordt het geselecteerde product verwijderd */}
+            <Button onClick={() => this.props.removeProduct(product.id)}>
+              Verwijder product
+            </Button>
+          </StyledContainer>
+        </StyledRoot>
+        </div>
+      );
+    });
+  }
+}
+
+
 const Button = styled.button`
   cursor: pointer;
   background: b2d7ee;
@@ -78,45 +123,3 @@ const H1 = styled.div`
   
 }
 `;
-interface IShoppingCartComponentProps {
-  basket: IProduct[];
-  renderMainComponent: () => void;
-  removeProduct: (productId: number) => void;
-}
-
-export default class ShoppingCartComponent extends React.Component<
-  IShoppingCartComponentProps
-> {
-  render() {
-    return (
-      <div>
-        {/* bij onClick wordt MainComponent geladen */}
-        <ButtonBack onClick={this.props.renderMainComponent}> <i className="fa fa-arrow-left"></i> Terug naar producten
-        </ButtonBack>
-        <H1>Uw winkel wagen</H1>
-        {this.renderBasket()}
-      </div>
-    );
-  }
-
-  renderBasket() {
-    return this.props.basket.map((product) => {
-      return (
-        <div>
-        <StyledRoot>
-          <StyledContainer>
-            <StyledPhoto src={product.image} alt={product.title} />
-            <Title>{product.title}</Title>
-            <Description>{product.description} </Description>
-            <p>{product.price}</p>
-            {/* bij onClick wordt het geselecteerde product verwijderd */}
-            <Button onClick={() => this.props.removeProduct(product.id)}>
-              Verwijder product
-            </Button>
-          </StyledContainer>
-        </StyledRoot>
-        </div>
-      );
-    });
-  }
-}

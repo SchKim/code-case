@@ -2,6 +2,42 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import styled from "styled-components";
 
+
+
+interface IProductComponentProps {
+  product: IProduct;
+  clickHandler: (product: IProduct) => void;
+}
+
+export default class ProductComponent extends React.Component<
+  IProductComponentProps
+> {
+  render() {
+    return (
+      <div>
+        <StyledRoot>
+          <StyledContainer>
+            <StyledPhoto
+              // style={{ width: "50%" }}
+              src={this.props.product.image}
+              alt={this.props.product.title}
+            />
+            <Title>{this.props.product.title}</Title>
+            <Description>
+              <p>{this.props.product.description}</p>{" "}
+            </Description>
+            <p>&euro; {this.props.product.price}</p>
+            <Button onClick={() => this.props.clickHandler(this.props.product)}>
+              Voeg toe aan mandje
+            </Button>
+          </StyledContainer>
+        </StyledRoot>
+      </div>
+    );
+  }
+}
+
+
 const Button = styled.button`
   cursor: pointer;
   background: #b2d7ee;
@@ -55,36 +91,3 @@ const StyledRoot = styled.div`
   
 }
 `;
-
-interface IProductComponentProps {
-  product: IProduct;
-  clickHandler: (product: IProduct) => void;
-}
-
-export default class ProductComponent extends React.Component<
-  IProductComponentProps
-> {
-  render() {
-    return (
-      <div>
-        <StyledRoot>
-          <StyledContainer>
-            <StyledPhoto
-              // style={{ width: "50%" }}
-              src={this.props.product.image}
-              alt={this.props.product.title}
-            />
-            <Title>{this.props.product.title}</Title>
-            <Description>
-              <p>{this.props.product.description}</p>{" "}
-            </Description>
-            <p>&euro; {this.props.product.price}</p>
-            <Button onClick={() => this.props.clickHandler(this.props.product)}>
-              Voeg toe aan mandje
-            </Button>
-          </StyledContainer>
-        </StyledRoot>
-      </div>
-    );
-  }
-}
