@@ -8,7 +8,6 @@ const Button = styled.button`
   border-radius: 3px;
   color:  #000;
   border: 2px solid #000;
-  margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
 `;
@@ -21,7 +20,29 @@ const Header = styled.header`
   width: 100%;
 
 `;
-
+const Icon = styled.div`
+  // width: 33.333%;
+  // text-align: right;
+  // float:right;
+  // margin-right: 50px;
+ 
+  svg {
+    //margin-right: 20px;
+  }
+`;
+const HeaderContainer = styled.div`
+  max-width: 68%;
+  margin: 0 17%;
+  padding: 100px 0;
+}
+`
+const HeaderContainerRight = styled.div`
+text-align: right;
+float:right;
+width: 250px;
+margin: -70px 19px 0 0;
+}
+`
 
 interface IHeaderComponentProps {
   totalProducts: number;
@@ -35,13 +56,17 @@ export default class HeaderComponent extends React.Component<IHeaderComponentPro
   render() {
     return (
       <Header>
-        <h1>HeaderComponent</h1>
+        <HeaderContainer>
+          <h1>Kim's code case</h1>
+        <HeaderContainerRight>
         {/* bij onClick wordt ShoppingCartComponent geladen */}
-        <p onClick={this.props.renderShoppingCartComponent}>icon</p>
+        <Icon onClick={this.props.renderShoppingCartComponent}><i style={{fontSize: '40px'}} className="fa fa-shopping-cart"></i></Icon>
         <p>Totaal producten: {this.props.totalProducts}</p>
         <p>Totaal prijs: {this.props.totalPrice}</p>
         {/* bij onClick wort het winkelmand geleegd */}
         <Button onClick={this.props.emptySelectedProducts}>Winkelmand legen</Button>
+        </HeaderContainerRight>
+        </HeaderContainer>
         </Header>
     );
   }
