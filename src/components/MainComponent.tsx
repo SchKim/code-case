@@ -83,7 +83,7 @@ export default class MainComponent extends React.Component<IMainComponentProps,I
           emptySelectedProducts={this.emptySelectedProducts}
         />
         {
-          // aan de hand van de renderShoppingCartComponent state laden we de ShoppingCartComponent of HomeComponent
+          // aan de hand van de renderShoppingCartComponent state wordt de ShoppingCartComponent of HomeComponent geladen
           this.state.renderShoppingCartComponent ? (
             <ShoppingCartComponent
               basket={this.state.selectedProducts}
