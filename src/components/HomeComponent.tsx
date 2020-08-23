@@ -2,7 +2,6 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import ProductComponent from "./ProductComponent";
 
-
 interface IHomeComponentProps {
     products: IProduct[]
     clickHandler: (product: IProduct) => void   
@@ -12,7 +11,6 @@ export default class HomeComponent extends React.Component<IHomeComponentProps> 
     render() {  
         return(
             <div>
-                <h1>HomeComponent</h1>
                 {this.renderProducts()}               
             </div>
         );

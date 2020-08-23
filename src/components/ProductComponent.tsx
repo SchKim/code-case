@@ -2,23 +2,18 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import styled from "styled-components";
 
-
-
 interface IProductComponentProps {
   product: IProduct;
   clickHandler: (product: IProduct) => void;
 }
 
-export default class ProductComponent extends React.Component<
-  IProductComponentProps
-> {
+export default class ProductComponent extends React.Component<IProductComponentProps> {
   render() {
     return (
       <div>
         <StyledRoot>
           <StyledContainer>
             <StyledPhoto
-              // style={{ width: "50%" }}
               src={this.props.product.image}
               alt={this.props.product.title}
             />

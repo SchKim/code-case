@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 interface IHeaderComponentProps {
   totalProducts: number;
   totalPrice: number;
@@ -9,9 +8,7 @@ interface IHeaderComponentProps {
   emptySelectedProducts: () => void;
 }
 
-export default class HeaderComponent extends React.Component<
-  IHeaderComponentProps
-> {
+export default class HeaderComponent extends React.Component<IHeaderComponentProps> {
   render() {
     return (
       <HeaderSticky>
@@ -22,11 +19,9 @@ export default class HeaderComponent extends React.Component<
             {this.props.totalProducts}
               {/* bij onClick wordt ShoppingCartComponent geladen */}
               <Icon onClick={this.props.renderShoppingCartComponent}>
-
                 <i style={{ fontSize: "40px" }}
                   className="fa fa-shopping-basket"></i>
               </Icon>
-              
               <p>Totaal prijs: &euro; {this.props.totalPrice}</p>
               {/* bij onClick wort het winkelmand geleegd */}
               <Button onClick={this.props.emptySelectedProducts}>

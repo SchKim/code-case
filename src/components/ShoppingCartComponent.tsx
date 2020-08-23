@@ -2,16 +2,13 @@ import React from "react";
 import { IProduct } from "../shared/IProduct";
 import styled from "styled-components";
 
-
 interface IShoppingCartComponentProps {
   basket: IProduct[];
   renderMainComponent: () => void;
   removeProduct: (productId: number) => void;
 }
 
-export default class ShoppingCartComponent extends React.Component<
-  IShoppingCartComponentProps
-> {
+export default class ShoppingCartComponent extends React.Component<IShoppingCartComponentProps> {
   render() {
     return (
       <div>

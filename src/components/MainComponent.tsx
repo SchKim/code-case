@@ -14,7 +14,7 @@ interface IMainComponentState {
   renderShoppingCartComponent: boolean;
 }
 
-export default class MainComponent extends React.Component<IMainComponentProps, IMainComponentState> {
+export default class MainComponent extends React.Component<IMainComponentProps,IMainComponentState> {
   constructor(props: IMainComponentProps) {
     super(props);
 
@@ -74,12 +74,12 @@ export default class MainComponent extends React.Component<IMainComponentProps, 
   render() {
     return (
       <div>
-        <h1>MainComponent</h1>
         <HeaderComponent
           totalProducts={this.state.selectedProducts.length}
           totalPrice={this.getTotalPrice()}
           renderShoppingCartComponent={() =>
-            this.setRenderShoppingCartComponent(true)}
+            this.setRenderShoppingCartComponent(true)
+          }
           emptySelectedProducts={this.emptySelectedProducts}
         />
         {
