@@ -8,33 +8,6 @@ interface IHeaderComponentProps {
   emptySelectedProducts: () => void;
 }
 
-export default class HeaderComponent extends React.Component<IHeaderComponentProps> {
-  render() {
-    return (
-      <HeaderSticky>
-        <Header>
-          <HeaderContainer>
-            <h1>Kim's code case</h1>
-            <HeaderContainerRight>
-            {this.props.totalProducts}
-              {/* bij onClick wordt ShoppingCartComponent geladen */}
-              <Icon onClick={this.props.renderShoppingCartComponent}>
-                <i style={{ fontSize: "40px" }}
-                  className="fa fa-shopping-basket"></i>
-              </Icon>
-              <p>Totaal prijs: &euro; {this.props.totalPrice}</p>
-              {/* bij onClick wort het winkelmand geleegd */}
-              <Button onClick={this.props.emptySelectedProducts}>
-                Winkelmand legen
-              </Button>
-            </HeaderContainerRight>
-          </HeaderContainer>
-        </Header>
-      </HeaderSticky>
-    );
-  }
-}
-
 
 const Button = styled.button`
   cursor: pointer;
@@ -82,3 +55,69 @@ position: -webkit-sticky; /* Safari */
   top: 0;
   border: 2px solid #040;
 }`;
+
+
+export default function HeaderComponent (props: IHeaderComponentProps){
+
+
+   const onClickRenderCart = () => {
+     props.renderShoppingCartComponent()
+   }
+
+   const onClickEmptyCart = () => {
+     props.emptySelectedProducts()
+   }
+
+  return (
+    <HeaderSticky>
+      <Header>
+        <HeaderContainer>
+          <h1>Kim's code case</h1>
+          <HeaderContainerRight>
+          {props.totalProducts}
+
+            {/* bij onClick wordt ShoppingCartComponent geladen */}
+            <Icon onClick={onClickRenderCart}>
+              <i style={{ fontSize: "40px" }}
+                className="fa fa-shopping-basket"></i>
+            </Icon>
+            <p>Totaal prijs: &euro; {props.totalPrice}</p>
+            {/* bij onClick wort het winkelmand geleegd */}
+            <Button onClick={onClickEmptyCart}>
+              Winkelmand legen
+            </Button>
+          </HeaderContainerRight>
+        </HeaderContainer>
+      </Header>
+    </HeaderSticky>
+  );
+}
+
+
+
+// export default class HeaderComponent extends React.Component<IHeaderComponentProps> {
+//   render() {
+//     return (
+//       <HeaderSticky>
+//         <Header>
+//           <HeaderContainer>
+//             <h1>Kim's code case</h1>
+//             <HeaderContainerRight>
+//             {this.props.totalProducts}
+//               {/* bij onClick wordt ShoppingCartComponent geladen */}
+//               <Icon onClick={this.props.renderShoppingCartComponent}>
+//                 <i style={{ fontSize: "40px" }}
+//                   className="fa fa-shopping-basket"></i>
+//               </Icon>
+//               <p>Totaal prijs: &euro; {this.props.totalPrice}</p>
+//               {/* bij onClick wort het winkelmand geleegd */}
+//               <Button onClick={this.props.emptySelectedProducts}>
+//                 Winkelmand legen
+//               </Button>
+//             </HeaderContainerRight>
+//           </HeaderContainer>
+//         </Header>
+//       </HeaderSticky>
+//     );
+//   }
+// }
