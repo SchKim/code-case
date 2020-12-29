@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-interface IFooterComponentProps {}
+// interface IFooterComponentProps {}
 
-export default class FooterComponent extends React.Component<IFooterComponentProps> {
-  render() {
-    return (
-      <Footer>
-        <p>Doei doei ;-)</p>
-      </Footer>
-    );
-  }
-}
+// export default class FooterComponent extends React.Component<IFooterComponentProps> {
+//   render() {
+//     return (
+//       <Footer>
+//         <p>Doei doei ;-)</p>
+//       </Footer>
+//     );
+//   }
+// }
 
 
 const Footer = styled.footer`
@@ -21,3 +21,12 @@ const Footer = styled.footer`
   padding: 0.25em 1em;
   width: 100%;
 `;
+
+ export default function FooterComponent(){
+  return (
+    <Footer>
+      <p>Doei doei ;-)</p>
+    </Footer>
+  )
+ }
+ 
