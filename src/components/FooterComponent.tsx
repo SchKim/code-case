@@ -12,8 +12,6 @@ import styled from "styled-components";
 //     );
 //   }
 // }
-
-
 const Footer = styled.footer`
   background: #b2d7ee;
   font-size: 16px;
