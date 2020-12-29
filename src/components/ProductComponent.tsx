@@ -6,33 +6,6 @@ interface IProductComponentProps {
   product: IProduct;
   clickHandler: (product: IProduct) => void;
 }
-
-export default class ProductComponent extends React.Component<IProductComponentProps> {
-  render() {
-    return (
-      <div>
-        <StyledRoot>
-          <StyledContainer>
-            <StyledPhoto
-              src={this.props.product.image}
-              alt={this.props.product.title}
-            />
-            <Title>{this.props.product.title}</Title>
-            <Description>
-              <p>{this.props.product.description}</p>{" "}
-            </Description>
-            <p>&euro; {this.props.product.price}</p>
-            <Button onClick={() => this.props.clickHandler(this.props.product)}>
-              Voeg toe aan mandje
-            </Button>
-          </StyledContainer>
-        </StyledRoot>
-      </div>
-    );
-  }
-}
-
-
 const Button = styled.button`
   cursor: pointer;
   background: #b2d7ee;
@@ -86,3 +59,52 @@ const StyledRoot = styled.div`
   
 }
 `;
+// export default class ProductComponent extends React.Component<IProductComponentProps> {
+//   render() {
+//     return (
+//       <div>
+//         <StyledRoot>
+//           <StyledContainer>
+//             <StyledPhoto
+//               src={this.props.product.image}
+//               alt={this.props.product.title}
+//             />
+//             <Title>{this.props.product.title}</Title>
+//             <Description>
+//               <p>{this.props.product.description}</p>{" "}
+//             </Description>
+//             <p>&euro; {this.props.product.price}</p>
+//             <Button onClick={() => this.props.clickHandler(this.props.product)}>
+//               Voeg toe aan mandje
+//             </Button>
+//           </StyledContainer>
+//         </StyledRoot>
+//       </div>
+//     );
+//   }
+// }
+
+
+export default function ProductComponent(props: IProductComponentProps) {
+  return (
+    <div>
+      <StyledRoot>
+        <StyledContainer>
+          <StyledPhoto
+            src={props.product.image}
+            alt={props.product.title}
+          />
+          <Title>{props.product.title}</Title>
+          <Description>
+            <p>{props.product.description}</p>{" "}
+          </Description>
+          <p>&euro; {props.product.price}</p>
+          <Button onClick={() => props.clickHandler(props.product)}>
+            Voeg toe aan mandje
+          </Button>
+        </StyledContainer>
+      </StyledRoot>
+    </div>
+  );
+  
+}
