@@ -96,7 +96,7 @@ export default function ProductComponent(props: IProductComponentProps) {
           />
           <Title>{props.product.title}</Title>
           <Description>
-            <p>{props.product.description}</p>{" "}
+            {props.product.description}
           </Description>
           <p>&euro; {props.product.price}</p>
           <Button onClick={() => props.clickHandler(props.product)}>

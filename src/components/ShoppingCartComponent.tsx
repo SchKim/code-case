@@ -8,41 +8,6 @@ interface IShoppingCartComponentProps {
   removeProduct: (productId: number) => void;
 }
 
-export default class ShoppingCartComponent extends React.Component<IShoppingCartComponentProps> {
-  render() {
-    return (
-      <div>
-        {/* bij onClick wordt MainComponent geladen */}
-        <ButtonBack onClick={this.props.renderMainComponent}> <i className="fa fa-arrow-left"></i> Terug naar producten
-        </ButtonBack>
-        <H1>Uw winkel wagen</H1>
-        {this.renderBasket()}
-      </div>
-    );
-  }
-
-  renderBasket() {
-    return this.props.basket.map((product) => {
-      return (
-        <div>
-        <StyledRoot>
-          <StyledContainer>
-            <StyledPhoto src={product.image} alt={product.title} />
-            <Title>{product.title}</Title>
-            <Description>{product.description} </Description>
-            <p>{product.price}</p>
-            {/* bij onClick wordt het geselecteerde product verwijderd */}
-            <Button onClick={() => this.props.removeProduct(product.id)}>
-              Verwijder product
-            </Button>
-          </StyledContainer>
-        </StyledRoot>
-        </div>
-      );
-    });
-  }
-}
-
 
 const Button = styled.button`
   cursor: pointer;
@@ -120,3 +85,72 @@ const H1 = styled.div`
   
 }
 `;
+
+export default function ShoppingCartComponent(props:IShoppingCartComponentProps) {
+   const renderBasket = () => {
+    return props.basket.map((product) => {
+      return (
+        <div>
+        <StyledRoot>
+          <StyledContainer>
+            <StyledPhoto src={product.image} alt={product.title} />
+            <Title>{product.title}</Title>
+            <Description>{product.description} </Description>
+            <p>{product.price.toFixed(2)}</p>
+            {/* bij onClick wordt het geselecteerde product verwijderd */}
+            <Button onClick={() => props.removeProduct(product.id)}>
+              Verwijder product
+            </Button>
+          </StyledContainer>
+        </StyledRoot>
+        </div>
+      );
+    });
+  }
+  
+  return (
+    <div>
+      {/* bij onClick wordt MainComponent geladen */}
+      <ButtonBack onClick={props.renderMainComponent}> <i className="fa fa-arrow-left"></i> Terug naar producten
+      </ButtonBack>
+      <H1>Uw winkel wagen</H1>
+      {renderBasket()}
+    </div>
+  ); 
+}
+
+
+// export default class ShoppingCartComponent extends React.Component<IShoppingCartComponentProps> {
+//   render() {
+//     return (
+//       <div>
+//         {/* bij onClick wordt MainComponent geladen */}
+//         <ButtonBack onClick={this.props.renderMainComponent}> <i className="fa fa-arrow-left"></i> Terug naar producten
+//         </ButtonBack>
+//         <H1>Uw winkel wagen</H1>
+//         {this.renderBasket()}
+//       </div>
+//     );
+//   }
+
+//   renderBasket() {
+//     return this.props.basket.map((product) => {
+//       return (
+//         <div>
+//         <StyledRoot>
+//           <StyledContainer>
+//             <StyledPhoto src={product.image} alt={product.title} />
+//             <Title>{product.title}</Title>
+//             <Description>{product.description} </Description>
+//             <p>{product.price}</p>
+//             {/* bij onClick wordt het geselecteerde product verwijderd */}
+//             <Button onClick={() => this.props.removeProduct(product.id)}>
+//               Verwijder product
+//             </Button>
+//           </StyledContainer>
+//         </StyledRoot>
+//         </div>
+//       );
+//     });
+//   }
+// }

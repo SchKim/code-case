@@ -81,7 +81,7 @@ export default function HeaderComponent (props: IHeaderComponentProps){
               <i style={{ fontSize: "40px" }}
                 className="fa fa-shopping-basket"></i>
             </Icon>
-            <p>Totaal prijs: &euro; {props.totalPrice}</p>
+            <p>Totaal prijs: &euro; {props.totalPrice.toFixed(2)}</p>
             {/* bij onClick wort het winkelmand geleegd */}
             <Button onClick={onClickEmptyCart}>
               Winkelmand legen
